@@ -8,7 +8,7 @@ Una Custom Card dal design premium per monitorare in tempo reale le tue sfide **
 Questa card è il compagno visivo perfetto per l'integrazione [Octopus Energy Break Helper](https://github.com/SalvatoreITA/Octopus-EnergyBreak-Helper).
 
 <div align="center">
-  <img src="SCREEN.jpg" alt="Card Preview" width="300">
+  <img src="IMAGE.PNG" alt="Card Preview" width="300">
 </div>
 
 ## 🎁 Sconto Octopus
