@@ -53,7 +53,7 @@ Poiché la card non è ancora tra i repository predefiniti di HACS, puoi aggiung
 1. Vai sulla tua Plancia (Dashboard) di Home Assistant.
 2. Clicca sulla matita in alto a destra per **Modificare la plancia**.
 3. Clicca su **Aggiungi Scheda**.
-4. Scorri l'elenco o cerca **"DomHouse Octopus Card - PowerUp"**.
+4. Scorri l'elenco o cerca **"DomHouse Octopus Card - Energy Break"**.
 5. Usa l'editor visivo per personalizzare il titolo o nascondere i suggerimenti di strategia.
 6. Salva e goditi il tuo PowerUp!
 
