@@ -57,6 +57,29 @@ Poiché la card non è ancora tra i repository predefiniti di HACS, puoi aggiung
 5. Usa l'editor visivo per personalizzare il titolo o nascondere i suggerimenti di strategia.
 6. Salva e goditi il tuo PowerUp!
 
+## 🎁 Bonus:Octopus Energy Break - Notifiche Smart (Blueprint)
+
+Un Blueprint per automatizzare le notifiche della tua sfida "Energy Break" su Home Assistant. 
+Questo strumento gestisce in totale autonomia gli avvisi di inizio e fine evento, calcolando l'esito della tua sfida in tempo reale.
+
+## ✨ Cosa fa questo Blueprint?
+
+* **Fischio d'inizio:** Ti invia una notifica nel minuto esatto in cui inizia l'Energy Break, ricordandoti i tuoi obiettivi in kWh (Soglia 1€ e Soglia 3€) in modo da sapere subito quanto puoi consumare.
+* **Arbitro a fine partita:** Nell'istante in cui la sfida termina, legge il tuo consumo live prima che il sensore si azzeri.
+* **Esito dinamico:** A seconda del tuo risultato, riceverai uno dei 3 messaggi personalizzati:
+  * 🎉 **Vittoria 3€:** Se sei rimasto sotto la soglia massima di risparmio.
+  * 👏 **Vittoria 1€:** Se hai raggiunto l'obiettivo base.
+  * ❌ **Sconfitta:** Se hai purtroppo superato i limiti.
+
+Nella cartella `blueprints` di questo repository troverai i file YAML pronti all'uso (Luce e Gas). 
+
+<div align="center">
+  <img src="notifiche.jpg" alt="Card Preview" width="300">
+</div>
+
+### 💡 Blueprint LUCE
+[![Importa Blueprint in Home Assistant](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/SalvatoreITA/domhouse-octopus-card/main/blueprints/octopus_tracker_luce.yaml)
+
 ## ☕ Supporta il Progetto
 
 Ogni piccolo supporto fa un'enorme differenza: mi aiuta a mantenere vivo l'entusiasmo e mi stimola a creare e condividere nuove soluzioni per la community. Grazie di cuore per il tuo aiuto! 🚀
