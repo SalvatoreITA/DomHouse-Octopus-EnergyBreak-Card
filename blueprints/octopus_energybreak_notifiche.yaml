@@ -1,0 +1,99 @@
+blueprint:
+  name: "🐙 Octopus Energy Break: Notifiche Smart"
+  description: >  
+    Gestisce automaticamente gli avvisi di Inizio e Fine per la sfida Energy Break di Octopus, comunicandoti i tuoi obiettivi e calcolando l'esito finale con i kWh consumati.
+
+    ⚙️ **Versione**: 1.0.0
+
+    👨‍💻 **Sviluppatore**: Salvatore Lentini
+
+    🌐 **Sito Web**: [www.domhouse.it](https://github.com/SalvatoreITA/DomHouse-Octopus-EnergyBreak-Card/)
+  domain: automation
+  input:
+    notify_service:
+      name: Servizio di Notifica
+      description: "Il servizio di notifica a cui inviare i messaggi (es. notify.notify, notify.mobile_app_tuo_iphone, notify.telegram)"
+      default: "notify.notify"
+      selector:
+        text:
+
+mode: single
+
+trigger:
+  # Trigger 1: Inizio Evento
+  - platform: template
+    value_template: >
+      {{ states('time.inizio_eb') not in ['unknown', 'unavailable'] and now().strftime('%H:%M') == states('time.inizio_eb')[:5] }}
+    id: "inizio"
+    
+  # Trigger 2: Fine Evento
+  - platform: template
+    value_template: >
+      {{ states('time.fine_eb') not in ['unknown', 'unavailable'] and now().strftime('%H:%M') == states('time.fine_eb')[:5] }}
+    id: "fine"
+
+condition:
+  # L'automazione scatta SOLO se oggi è il giorno segnato sul calendario
+  - condition: template
+    value_template: "{{ states('date.data_eb') == now().strftime('%Y-%m-%d') }}"
+
+action:
+  # Lettura delle variabili live prima di processare l'esito
+  - variables:
+      consumo: "{{ states('sensor.energybreak_consumo_live') | float(0) }}"
+      t1: "{{ states('sensor.energybreak_obiettivo_1_euro') | float(0) }}"
+      t3: "{{ states('sensor.energybreak_obiettivo_3_euro') | float(0) }}"
+
+  - choose:
+      # ==========================================
+      # AZIONE PER L'INIZIO DELL'EVENTO
+      # ==========================================
+      - conditions:
+          - condition: trigger
+            id: "inizio"
+        sequence:
+          - service: !input notify_service
+            data:
+              title: "⚡ Inizia l'Energy Break!"
+              message: >
+                Stacca la spina! L'Energy Break è appena iniziato. 
+                Mantieni il prelievo sotto i {{ t3 }} kWh per vincere 3€, o sotto i {{ t1 }} kWh per assicurarti 1€. 
+                Corri a controllare la barra live sulla tua plancia! 🏃‍♂️🔌
+
+      # ==========================================
+      # AZIONI PER LA FINE DELL'EVENTO (ESITO)
+      # ==========================================
+      - conditions:
+          - condition: trigger
+            id: "fine"
+        sequence:
+          - choose:
+              # CASO 1: VITTORIA MASSIMA (Sconto 3€)
+              - conditions:
+                  - condition: template
+                    value_template: "{{ consumo < t3 }}"
+                sequence:
+                  - service: !input notify_service
+                    data:
+                      title: "🎉 Vittoria Energy Break! (3€)"
+                      message: >
+                        Sei un grande! Hai consumato solo {{ consumo }} kWh restando sotto il limite massimo. Hai appena vinto 3€ di sconto in bolletta! 💰
+              
+              # CASO 2: VITTORIA MEDIA (Sconto 1€)
+              - conditions:
+                  - condition: template
+                    value_template: "{{ consumo >= t3 and consumo < t1 }}"
+                sequence:
+                  - service: !input notify_service
+                    data:
+                      title: "👏 Obiettivo Raggiunto! (1€)"
+                      message: >
+                        Bravo! Hai consumato {{ consumo }} kWh. Non hai preso il premio massimo, ma sei rimasto sotto la soglia. Hai vinto 1€ di sconto! 🪙
+            
+            # CASO 3: SCONFITTA (Nessuno Sconto)
+            default:
+              - service: !input notify_service
+                data:
+                  title: "❌ Energy Break Fallito"
+                  message: >
+                    Peccato! Hai consumato {{ consumo }} kWh, superando il limite di {{ t1 }} kWh. Niente sconto per stasera, andrà meglio al prossimo! 🔌
