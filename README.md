@@ -77,8 +77,8 @@ Nella cartella `blueprints` di questo repository troverai i file YAML pronti all
   <img src="notifiche.jpg" alt="Card Preview" width="300">
 </div>
 
-### 💡 Blueprint LUCE
-[![Importa Blueprint in Home Assistant](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/SalvatoreITA/domhouse-octopus-card/main/blueprints/octopus_tracker_luce.yaml)
+### 🎉 Blueprint
+[![Importa Blueprint in Home Assistant](https://my.home-assistant.io/badges/blueprint_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?blueprint_url=https://raw.githubusercontent.com/SalvatoreITA/DomHouse-Octopus-EnergyBreak-Card/refs/heads/main/blueprints/octopus_energybreak_notifiche.yaml)
 
 ## ☕ Supporta il Progetto
 
