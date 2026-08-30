@@ -74,7 +74,7 @@ Questo strumento gestisce in totale autonomia gli avvisi di inizio e fine evento
 Nella cartella `blueprints` di questo repository troverai i file YAML pronti all'uso (Luce e Gas). 
 
 <div align="center">
-  <img src="notifiche.jpg" alt="Card Preview" width="300">
+  <img src="anteprima_blueprint.jpg" alt="Card Preview" width="300">
 </div>
 
 ### 🎉 Blueprint
