@@ -71,7 +71,7 @@ Questo strumento gestisce in totale autonomia gli avvisi di inizio e fine evento
   * 👏 **Vittoria 1€:** Se hai raggiunto l'obiettivo base.
   * ❌ **Sconfitta:** Se hai purtroppo superato i limiti.
 
-Nella cartella `blueprints` di questo repository troverai i file YAML pronti all'uso (Luce e Gas). 
+Nella cartella `blueprints` di questo repository troverai i file YAML pronti all'uso. 
 
 <div align="center">
   <img src="anteprima_blueprint.jpg" alt="Card Preview" width="300">
