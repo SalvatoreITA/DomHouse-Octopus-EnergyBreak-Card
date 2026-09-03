@@ -1,7 +1,7 @@
 {
-  "name": "DomHouse Octopus PowerUp Card",
+  "name": "DomHouse Octopus EnergyBreak Card",
   "content_in_root": true,
-  "filename": "domhouse-octopus-powerup-card.js",
+  "filename": "domhouse-octopus-energybreak-card.js",
   "render_readme": true,
   "homeassistant": "2024.1.0"
 }
