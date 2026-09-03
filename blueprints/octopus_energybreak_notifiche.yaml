@@ -7,7 +7,7 @@ blueprint:
 
     👨‍💻 **Sviluppatore**: Salvatore Lentini
 
-    🌐 **Sito Web**: [www.domhouse.it](https://github.com/SalvatoreITA/DomHouse-Octopus-EnergyBreak-Card/)
+    🌐 **Sito Web**: [www.domhouse.it](https://www.domhouse.it/)
   domain: automation
   input:
     notify_service:
